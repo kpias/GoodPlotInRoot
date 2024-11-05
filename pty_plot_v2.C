@@ -127,8 +127,8 @@ int pty_plot_v2 (int optInput = 2, int optDraw = 1) {
   l.DrawLatex (0.66, 0.16, "#vartheta_{L} = 2#circ");
   l.SetTextAngle (90);
   l.DrawLatex (0.405, 0.7, "Y_{NN}");
-  l.SetTextAngle (-74);
-  l.DrawLatex (0.59, 0.46, "p_{L} = 4 GeV");
+  l.SetTextAngle (-75);
+  l.DrawLatex (0.59, 0.485, "p_{Lab} = 4 GeV");
   l.SetTextAngle (-75);
   l.DrawLatex (0.487, 0.331, "2 GeV");
   l.SetTextAngle (-78);
