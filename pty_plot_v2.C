@@ -20,7 +20,7 @@ Double_t pt_y_ptot (Double_t* xarg, Double_t *par) {
   return (u > 0.) ? sqrt(u) / cosh(y) : 0. ;
 }
 
-int pty_plot (int optInput = 1, int optDraw = 1) {
+int pty_plot_v2 (int optInput = 2, int optDraw = 1) {
   Float_t Tb = 3.25 , mnuc = 0.939, Ebeam = Tb + mnuc,
           pbeam = sqrt (Ebeam*Ebeam + mnuc*mnuc) ,
           Bbeam = pbeam/(Ebeam+mnuc), Ynn = atanh (Bbeam);
@@ -49,21 +49,21 @@ int pty_plot (int optInput = 1, int optDraw = 1) {
   
   TCanvas* c1 = new TCanvas ("c1", "", 800, 600);
   c1->SetGrid (0, 0);
-  c1->SetTopMargin    (0.07);
+  c1->SetTopMargin    (0.10);
   c1->SetBottomMargin (0.13);
-  c1->SetRightMargin  (0.15);
-  c1->SetLeftMargin   (0.11);
-  
+  c1->SetRightMargin  (0.13);
+  c1->SetLeftMargin   (0.13);
+    
   h->UseCurrentStyle();
   h->Draw ("colz");
 
-  h->GetXaxis()->SetTitle ("Position (#mum)");
+  h->GetXaxis()->SetTitle ("y");
   h->GetXaxis()->CenterTitle (true);
   h->GetXaxis()->SetTitleOffset (1.10);
   h->GetXaxis()->SetTitleSize(0.055);
-  h->GetYaxis()->SetTitle ("Rate (arb. units)");
+  h->GetYaxis()->SetTitle ("p_{T} (GeV/c)");
   h->GetYaxis()->CenterTitle (true);
-  h->GetYaxis()->SetTitleOffset (1.5);
+  h->GetYaxis()->SetTitleOffset (1.0);
   h->GetYaxis()->SetTitleSize(0.055);
   
   if (optDraw == 0)
@@ -117,18 +117,21 @@ int pty_plot (int optInput = 1, int optDraw = 1) {
   
   TLatex l;
   l.SetNDC (1);
-  l.SetTextSize (0.04);
   l.SetTextFont (42);
-  l.DrawLatex (0.45, 0.95, "#vartheta_{L} = 25#circ");
+  l.SetTextSize (0.049);
+  l.DrawLatex (0.135, 0.94, "Au+Au, #it{T}_{Beam} = 3.25A GeV, b = [0..16] fm, protons");
+  l.SetTextAngle (82);
+  l.SetTextSize (0.04);
+  l.DrawLatex (0.505, 0.755, "#vartheta_{L} = 25#circ");
   l.SetTextAngle (15);
-  l.DrawLatex (0.66, 0.17, "#vartheta_{L} = 2#circ");
+  l.DrawLatex (0.66, 0.16, "#vartheta_{L} = 2#circ");
   l.SetTextAngle (90);
   l.DrawLatex (0.405, 0.7, "Y_{NN}");
   l.SetTextAngle (-74);
-  l.DrawLatex (0.57, 0.48, "p_{L} = 4 GeV");
-  l.SetTextAngle (-76);
-  l.DrawLatex (0.47, 0.335, "2 GeV");
+  l.DrawLatex (0.59, 0.46, "p_{L} = 4 GeV");
+  l.SetTextAngle (-75);
+  l.DrawLatex (0.487, 0.331, "2 GeV");
   l.SetTextAngle (-78);
-  l.DrawLatex (0.37, 0.28, "1 GeV");
+  l.DrawLatex (0.39, 0.28, "1 GeV");
   return 0;
 }
