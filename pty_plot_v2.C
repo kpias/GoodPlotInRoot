@@ -23,7 +23,7 @@ Double_t pt_y_ptot (Double_t* xarg, Double_t *par) {
 int pty_plot_v2 (int optInput = 2, int optDraw = 1) {
   Float_t Tb = 3.25 , mnuc = 0.939, Ebeam = Tb + mnuc,
           pbeam = sqrt (Ebeam*Ebeam + mnuc*mnuc) ,
-          Bbeam = pbeam/(Ebeam+mnuc), Ynn = atanh (Bbeam);
+          Bnn = pbeam / (Ebeam + mnuc), Ynn = atanh (Bnn);
           
   gStyle->SetOptStat (0);
   gStyle->SetLegendBorderSize (0);
